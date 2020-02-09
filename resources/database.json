@@ -1,0 +1,4 @@
+{
+  "cluster": "Sandwich Cluster",
+  "url": "mongodb+srv://SandwichEater:M%40rbl3Rye20@sandwichcluster-jzx8a.azure.mongodb.net/eft_ammo?authSource=admin&replicaSet=SandwichCluster-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true"
+}
