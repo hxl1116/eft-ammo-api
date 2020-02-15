@@ -11,19 +11,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1",
     "koa": "^2.11.0",
     "koa-json": "^2.0.2",
     "koa-mount": "^4.0.0",
     "koa-router": "^7.4.0",
-    "lodash": "^4.17.15",
     "mongoose": "^5.8.9"
   },
   "devDependencies": {
     "gh-pages": "^2.2.0",
-    "nodemon": "^2.0.2",
-    "webpack": "^4.41.6",
-    "webpack-cli": "^3.3.11"
+    "nodemon": "^2.0.2"
   },
   "browserslist": {
     "production": [
