@@ -2,7 +2,7 @@
   "name": "tarkov-rest",
   "version": "1.0.0",
   "description": "REST API to serve EFT Ammo data",
-  "main": "src/index.js",
+  "main": "src/app.js",
   "scripts": {
     "start": "nodemon src/index.js",
     "deploy": "gh-pages -d dist"
@@ -13,7 +13,6 @@
   "dependencies": {
     "koa": "^2.11.0",
     "koa-json": "^2.0.2",
-    "koa-mount": "^4.0.0",
     "koa-router": "^7.4.0",
     "mongoose": "^5.8.9"
   },

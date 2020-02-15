@@ -1,39 +1,19 @@
-const Koa = require('koa');
-const KoaRouter = require('koa-router');
-const render = require('koa-ejs');
+const app = new (require('koa'))();
+const router = new (require('koa-router'))();
 const json = require('koa-json');
-const mount = require('koa-mount');
-const graphql = require('koa-graphql');
-const path = require('path');
 
 const connect = require('./database/database');
-const schema = require('./graphql/schema');
 
 const {AmmoTypes, PDWAmmo, PistolAmmo, RifleAmmo, ShotgunAmmo} = require('./database/schema');
 
-const app = new Koa();
-const router = new KoaRouter();
+// Connect to database
+connect('SandwichEater', 'M@rbl3Rye20');
 
 // JSON Prettier Middleware
 app.use(json());
 
 // Router Middleware
 app.use(router.routes()).use(router.allowedMethods());
-
-app.use(mount('/graphql', graphql({
-    schema: schema,
-    graphiql: true
-})));
-
-render(app, {
-    root: path.join(__dirname, '../views'),
-    layout: 'layout',
-    viewExt: 'html',
-    cache: false,
-    debug: false
-});
-
-connect('SandwichEater', 'M@rbl3Rye20');
 
 // Routes
 router.get('/', index);
