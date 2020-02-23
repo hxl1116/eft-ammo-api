@@ -1,13 +1,10 @@
 const mongoose = require('mongoose');
-const path = require('path');
-const fs = require('fs');
 
-const resourceDir = '/Users/henrylarson/WebstormProjects/tarkov-rest/resources';
+import {username, password} from '../../resources/credentials';
+import {url} from '../../resources/database';
 
-let {cluster, url} = JSON.parse(fs.readFileSync(path.join(resourceDir, 'database.json'), 'utf8'));
-
-module.exports = (user, pass) => {
-    mongoose.connect(`${url.replace('<username>', user).replace('<password>', pass)}`, {
+const connect = () => {
+    mongoose.connect(`${url.replace('<username>', username).replace('<password>', password)}`, {
         useNewUrlParser: true,
         useUnifiedTopology: true
     });
@@ -20,3 +17,5 @@ module.exports = (user, pass) => {
         console.log('Connected to database');
     })
 };
+
+connect();
