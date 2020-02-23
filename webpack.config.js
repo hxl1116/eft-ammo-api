@@ -7,8 +7,7 @@ require('./resources/database');
 module.exports = {
     mode: 'development',
     entry: {
-        database: './database/database.js',
-        schema: './database/schema.js'
+        app: './app'
     },
     output: {
         path: resolve(__dirname, './dist'),
@@ -17,16 +16,10 @@ module.exports = {
     },
     devtool: 'inline-source-map',
     context: resolve(__dirname, './src'),
-    resolve: {
-        modules: [
-            'node_modules'
-        ]
-    },
     plugins: [
         new HTMLWebpackPlugin({
             title: 'Tarkov REST API'
         }),
         new CleanWebpackPlugin()
-    ],
-    externals: 'this mongoose'
+    ]
 };

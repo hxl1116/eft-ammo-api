@@ -35,4 +35,4 @@ const PistolAmmo = mongoose.model('pistol_cartridges', cartridgeTypeSchema);
 const RifleAmmo = mongoose.model('rifle_cartridges', cartridgeTypeSchema);
 const ShotgunAmmo = mongoose.model('shotgun_cartridges', cartridgeTypeSchema);
 
-module.exports = {AmmoTypes, PDWAmmo, PistolAmmo, RifleAmmo, ShotgunAmmo};
+export default {AmmoTypes, PDWAmmo, PistolAmmo, RifleAmmo, ShotgunAmmo};

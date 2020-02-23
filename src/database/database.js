@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 import {username, password} from '../../resources/credentials';
 import {url} from '../../resources/database';
 
-const connect = () => {
+export default () => {
     mongoose.connect(`${url.replace('<username>', username).replace('<password>', password)}`, {
         useNewUrlParser: true,
         useUnifiedTopology: true
@@ -17,5 +17,3 @@ const connect = () => {
         console.log('Connected to database');
     })
 };
-
-connect();
