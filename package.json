@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "description": "REST API to serve EFT Ammo data",
   "main": "src/app.js",
+  "homepage": "eft-ammo-api",
   "scripts": {
     "build": "webpack --config webpack.config.js",
-    "start": "nodemon src/server.js"
+    "start": "nodemon src/server.js",
+    "deploy": "gh-pages -d dist"
   },
   "keywords": [],
   "author": "",
@@ -20,6 +22,7 @@
   },
   "devDependencies": {
     "clean-webpack-plugin": "^3.0.0",
+    "gh-pages": "^2.2.0",
     "html-webpack-plugin": "^3.2.0",
     "imports-loader": "^0.8.0",
     "nodemon": "^2.0.2",

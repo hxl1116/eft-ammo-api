@@ -16,7 +16,7 @@ koa.use(devMiddleware(compiler, {publicPath: config.output.publicPath}));
 koa.use(hotMiddleware(compiler, {}));
 koa.use(router.routes());
 koa.use(router.allowedMethods());
-koa.use(json);
+koa.use(json());
 
 // router.get('/credentials', async (ctx) => {
 //     return ctx.body = {
@@ -25,25 +25,27 @@ koa.use(json);
 //     }
 // });
 
-router.get('/ammo/types', async (ctx) => {
-    return ctx.body = await findAmmoTypes();
-});
-
-router.get('/ammo/pdw', async (ctx) => {
-    return ctx.body = await findPdwAmmo();
-});
-
-router.get('/ammo/pistol', async (ctx) => {
-    return ctx.body = await findPistolAmmo();
-});
-
-router.get('/ammo/rifle', async (ctx) => {
-    return ctx.body = await findRifleAmmo();
-});
-
-router.get('/ammo/shotgun', async (ctx) => {
-    return ctx.body = await findShotgunAmmo();
-});
+router
+    .get('/test', async (ctx) => {
+        ctx.body = {
+            test: 'test'
+        }
+    })
+    .get('/ammo/types', async (ctx) => {
+        ctx.body = await findAmmoTypes();
+    })
+    .get('/ammo/pdw', async (ctx) => {
+        ctx.body = await findPdwAmmo();
+    })
+    .get('/ammo/pistol', async (ctx) => {
+        ctx.body = await findPistolAmmo();
+    })
+    .get('/ammo/rifle', async (ctx) => {
+        ctx.body = await findRifleAmmo();
+    })
+    .get('/ammo/shotgun', async (ctx) => {
+        ctx.body = await findShotgunAmmo();
+    });
 
 koa.listen(3000, () => {
     console.log('Server started on port: 3000');
