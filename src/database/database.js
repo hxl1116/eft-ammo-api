@@ -1,19 +1,16 @@
 const mongoose = require('mongoose');
 
-import {username, password} from '../../resources/credentials';
-import {url} from '../../resources/database';
+const {username, password} = require('../../resources/credentials');
+const {url} = require('../../resources/database');
 
-export default () => {
+const connect = () => {
     mongoose.connect(`${url.replace('<username>', username).replace('<password>', password)}`, {
         useNewUrlParser: true,
         useUnifiedTopology: true
+    }, err => {
+        if (err) console.log(err);
+        else console.log('Connected to database')
     });
-
-    mongoose.connection.on('error', err => {
-        console.log(err)
-    });
-
-    mongoose.connection.once('open', () => {
-        console.log('Connected to database');
-    })
 };
+
+module.exports = {connect};

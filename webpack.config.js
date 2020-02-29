@@ -1,4 +1,5 @@
 const {resolve} = require('path');
+const webpack = require('webpack');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 
@@ -7,7 +8,7 @@ require('./resources/database');
 module.exports = {
     mode: 'development',
     entry: {
-        app: './app'
+        index: './index'
     },
     output: {
         path: resolve(__dirname, './dist'),
@@ -20,6 +21,11 @@ module.exports = {
         new HTMLWebpackPlugin({
             title: 'Tarkov REST API'
         }),
-        new CleanWebpackPlugin()
+        new CleanWebpackPlugin(),
+        new webpack.optimize.OccurrenceOrderPlugin(false),
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.ProvidePlugin({
+            $: 'jquery'
+        })
     ]
 };
