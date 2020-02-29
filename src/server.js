@@ -9,7 +9,7 @@ const config = require('../webpack.config');
 const compiler = webpack(config);
 
 const {connect} = require('./database/database');
-const {username, password} = require('../resources/credentials');
+// const {username, password} = require('../resources/credentials');
 const {findAmmoTypes, findPdwAmmo, findPistolAmmo, findRifleAmmo, findShotgunAmmo} = require('./database/accessor');
 
 koa.use(devMiddleware(compiler, {publicPath: config.output.publicPath}));
